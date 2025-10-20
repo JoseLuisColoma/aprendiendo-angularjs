@@ -1,3 +1,5 @@
+# **NOTAS DE ANGULAR JS**
+
 # Capítulo 1.1 - Comenzando con AngularJS
 
 ## ¿Qué es AngularJS?
@@ -11,6 +13,28 @@ Incluimos AngularJS desde un CDN:
 ```html
 <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
 ```
+
+## Ejemplo completo
+```
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+</head>
+<body>
+
+  <div ng-init="saludo='Hola'">
+    <p>{{ saludo }}</p>
+  </div>
+
+  <div ng-init="nombre='Mundo'">
+    <p>{{ nombre }}</p>
+  </div>
+
+</body>
+</html>
+```
+
 intro a directivas:
 - ng-app: Inicializa una app AngularJS. Sin esto, Angular no sabe que debe actuar sobre el DOM.
 
