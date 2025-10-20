@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app lang="es">
+
+<head>
+    <title>Hola, Angular</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-init="inicio='Mundo'">
+        <label>Nombre</label>
+        <input ng-model="inicio" />
+        <br><br>
+        <span>Hola, {{ inicio }}!</span>
+        <p ng-bind="inicio"></p>
+    </div>
+    <div ng-init="nombre='Jose'">
+        <label>Nombre</label>
+        <input ng-model="nombre" />
+        <h1>Hola, {{ nombre }}!</h1>
+        <p ng-bind="nombre"></p>
+</body>
+
+</html>
