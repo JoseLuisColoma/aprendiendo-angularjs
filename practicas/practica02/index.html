@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="miApp" lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Práctica - $scope y $rootScope</title>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body ng-cloak>
+
+    <h2>Ejemplo de $rootScope</h2>
+    <p><strong>Mensaje global:</strong> {{ mensajeGlobal }}</p>
+
+    <hr />
+
+    <div ng-controller="PadreCtrl">
+        <h3>Controlador Padre</h3>
+        <div>Primitiva:</div>
+        <input ng-model="primitiva"><br />
+        <div>Objeto:</div>
+        <input ng-model="datos.objeto">
+
+        <p><strong>Valor en padre (primitiva):</strong> {{ primitiva }}</p>
+        <p><strong>Valor en padre (objeto):</strong> {{ datos.objeto }}</p>
+
+        <div ng-controller="HijoCtrl">
+            <h4>Controlador Hijo</h4>
+            <div>Primitiva:</div>
+            <input ng-model="primitiva"><br />
+            <div>Objeto:</div>
+            <input ng-model="datos.objeto">
+
+            <p><strong>Valor en hijo (primitiva):</strong> {{ primitiva }}</p>
+            <p><strong>Valor en hijo (objeto):</strong> {{ datos.objeto }}</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
