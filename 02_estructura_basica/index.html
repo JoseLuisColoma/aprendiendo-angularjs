@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="miAppDemo" lang="es">
+
+<head>
+    <title>AngularJS</title>
+    <style>
+        .iniciado {
+            background: steelblue
+        }
+    </style>
+    <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script>
+        function ServicioDatosMundos() {
+            return {
+                obtenerMundos: function () {
+                    return ["este mundo", "otro mundo"];
+                }
+            };
+        }
+
+        function ControladorDemo(servicioMundos) {
+            var vm = this;
+            vm.mensajes = servicioMundos.obtenerMundos().map(function (mundo) {
+                return "Hola, " + mundo + "!";
+            });
+        }
+
+        function alIniciar($rootScope, $window) {
+            $window.alert("Hola usuario! Cargando mundos...");
+            $rootScope.yaInicio = true;
+        }
+
+        angular.module("miAppDemo", [])
+            .service("servicioMundos", [ServicioDatosMundos])
+            .controller("controladorDemo", ["servicioMundos", ControladorDemo])
+            .config(function () {
+                console.log("Configurando aplicación...");
+            })
+            .run(["$rootScope", "$window", alIniciar]);
+    </script>
+</head>
+
+<body ng-class="{ 'iniciado': yaInicio }" ng-cloak>
+    <div ng-controller="controladorDemo as vm">
+        <ul>
+            <li ng-repeat="mensaje in vm.mensajes">{{ mensaje }}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
