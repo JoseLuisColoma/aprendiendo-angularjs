@@ -129,7 +129,7 @@ Crea el módulo principal. Podemos encadenar .service(), .controller(), .config(
 ### Servicio: ServicioDatosMundos
 
 Define una función que retorna un array de mundos. Este servicio será inyectado en el controlador.
-
+```
 function ServicioDatosMundos() {
   return {
     obtenerMundos: function () {
@@ -137,18 +137,19 @@ function ServicioDatosMundos() {
     }
   };
 }
+```
 
 ### Controlador: ControladorDemo
 
 Usa el servicio para construir un array de mensajes:
-
+```
 function ControladorDemo(servicioMundos) {
   var vm = this;
   vm.mensajes = servicioMundos.obtenerMundos().map(function (m) {
     return "Hola, " + m + "!";
   });
 }
-
+```
 
 Se usa el patrón controller as vm para evitar $scope.
 
@@ -157,12 +158,12 @@ vm es alias de view model.
 ### Método .run()
 
 Se ejecuta al iniciar la aplicación. Muestra un mensaje con alert y cambia el valor de $rootScope.yaInicio.
-
+```
 function alIniciar($rootScope, $window) {
   $window.alert("¡Hola usuario! Cargando mundos...");
   $rootScope.yaInicio = true;
 }
-
+```
 ### ng-class="{ 'iniciado': yaInicio }"
 
 Añade dinámicamente la clase iniciado al body si $rootScope.yaInicio es verdadero.
@@ -202,3 +203,15 @@ Este ejemplo incluye muchas características clave de AngularJS:
 * Directivas: ng-app, ng-controller, ng-repeat, ng-class, ng-cloak
 
 * Bootstrap automático y eventos de inicio
+
+## PRÁCTICA 1.2 – App AngularJS con servicios, controlador y estilos dinámicos
+
+### Objetivo:
+
+-Crear una app AngularJS completa usando:
+
+-Módulo personalizado
+-Servicio
+-Controlador (controller as)
+-Métodos .config() y .run()
+-Directivas: ng-app, ng-controller, ng-class, ng-repeat, ng-cloak
