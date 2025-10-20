@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <title>Práctica 01</title>
     <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=1.0.1"></script>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body ng-class="{'iniciado': yaInicio}" ng-cloak>
     <div ng-controller="ControladorDemo as vm">
-        <h1>Lista de Saludos</h1>
+        <h1>Saludos desde los diferentes planetas del Sistema Solar</h1>
         <ul>
             <li ng-repeat="mensaje in vm.mensajes">{{ mensaje }}</li>
         </ul>
